@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "A simple example of the signals/slots pattern.",
   "main": "dist/index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "keywords": [
     "typescript",
     "signals",
@@ -13,6 +12,7 @@
   "author": "Kye Smith",
   "license": "MIT",
   "devDependencies": {
+    "prettier": "^2.8.4",
     "typescript": "^4.9.5"
   }
 }
