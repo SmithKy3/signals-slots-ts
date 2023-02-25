@@ -1,7 +1,7 @@
-type GenericSlot<SignalType> = (emittedValue: SignalType) => void;
+export type Slot<SignalType> = (emittedValue: SignalType) => void;
 
 export class Signal<SignalType> {
-  private _slots = new Array<GenericSlot<SignalType>>();
+  private _slots = new Array<Slot<SignalType>>();
 
   constructor(private _value: SignalType) {}
 
@@ -14,11 +14,14 @@ export class Signal<SignalType> {
     this._slots.forEach((slot) => slot(newVal));
   }
 
-  public connect(slotToAdd: GenericSlot<SignalType>) {
+  public connect(slotToAdd: Slot<SignalType>) {
     this._slots.push(slotToAdd);
   }
 
-  public disconnect(slotToRemove: GenericSlot<SignalType>) {
+  public disconnect(slotToRemove: Slot<SignalType>) {
     this._slots = this._slots.filter((slot) => slot !== slotToRemove);
   }
 }
+
+export const createSignal = <SignalType>(val: SignalType): Signal<SignalType> =>
+  new Signal(val);
