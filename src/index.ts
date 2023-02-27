@@ -1,1 +1,2 @@
-export * from './lib/Signal';
+export * from './lib/api';
+export * from './types';
