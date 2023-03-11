@@ -1,4 +1,4 @@
-import { Slot } from '../../types/Slot';
+export type Slot<T> = (emittedValue: T) => void;
 
 export class SlotsStore<T> {
   public connect(slotToAdd: Slot<T>) {

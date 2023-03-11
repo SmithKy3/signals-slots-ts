@@ -1,4 +1,3 @@
-import { Slot } from '../../types/Slot';
 import { PrimitiveSignal } from './PrimitiveSignal';
 
 describe('PrimitiveSignal', () => {
