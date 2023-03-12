@@ -8,7 +8,7 @@
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
   "author": "Kye Smith",
-  "description": "A simple example of the signals/slots pattern.",
+  "description": "A simple example of the signals/slots observability pattern, written in TypeScript.",
   "keywords": [
     "typescript",
     "observability",
