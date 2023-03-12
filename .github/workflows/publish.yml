@@ -1,0 +1,26 @@
+name: Publish signals-slots-ts to NPM
+on:
+  push:
+    branches: [main]
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        # Prevent malicous scripts stealing our NPM token
+        run: yarn install --ignore-scripts
+      - name: Run tests
+        run: yarn run test
+      - name: Set up .npmrc
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'yarn'
+          registry-url: 'https://registry.npmjs.org'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Build
+        run: yarn run build
+      - name: Publish
+        run: yarn publish --access public
