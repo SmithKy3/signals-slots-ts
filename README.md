@@ -10,22 +10,22 @@ A simple example of the signals/slots observability pattern, written in TypeScri
 // CommonJS
 const { createSignal } = require('signals-slots-ts');
 
-const myComplexData = myComplextDataFactory();
+const myComplexData = myComplexDataFactory();
 const mySignal = createSignal(myComplexData);
 
 // ESM
 import { createSignal } from 'signals-slots-ts';
 
-const myComplexData = myComplextDataFactory();
+const myComplexData = myComplexDataFactory();
 const mySignal = createSignal(myComplexData);
 ```
 
-- Connecting disconnecting callbacks
+- Connecting / disconnecting callbacks
 
 ```
 import { createSignal } from 'signals-slots-ts';
 
-const myComplexData = myComplextDataFactory();
+const myComplexData = myComplexDataFactory();
 const mySignal = createSignal(myComplexData);
 
 const onMyComplexDataChange = (newComplexData) => {
@@ -33,5 +33,9 @@ const onMyComplexDataChange = (newComplexData) => {
 };
 mySingal.connect(onMyComplexDataChange);
 mySignal.value.someNumberFieldOfMyComplexData += 1;
-// Updated data logged to console;
+// Updated data logged to console.
+
+mySignal.disconnect(onMyComplexDataChange);
+mySignal.value.someNumberFieldOfMyComplexData += 1;
+// Updated data not logged to console.
 ```
