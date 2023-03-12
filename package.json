@@ -16,6 +16,7 @@
     "slots"
   ],
   "license": "MIT",
+  "repository": "https://github.com/SmithKy3/signals-slots-ts",
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
